@@ -1,0 +1,42 @@
+
+services:
+  db:
+    image: postgres:15
+    container_name: umchool_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: umschoolkz
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: umschool_api
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:12345@db:5432/umschoolkz
+
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    container_name: umschool_bot
+    restart: always
+    depends_on:
+      - api
+    environment:
+      API_URL: http://api:8000
+      BOT_TOKEN: "8284449158:AAE6HF9L5r2jS2O0sR841ZDnpW3eHhzC910"
+
+volumes:
+  postgres_data:
