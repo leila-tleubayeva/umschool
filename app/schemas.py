@@ -10,7 +10,7 @@ class StudentOut(BaseModel):
     last_name: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ScoreCreate(BaseModel):
     student_id: int
@@ -22,7 +22,7 @@ class ScoreOut(BaseModel):
     value: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class SubjectCreate(BaseModel):
     name: str
@@ -32,4 +32,4 @@ class SubjectOut(BaseModel):
     name: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True

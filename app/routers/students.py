@@ -5,7 +5,6 @@ from app import models, schemas
 
 router = APIRouter(prefix="/students", tags=["Students"])
 
-# Dependency
 def get_db():
     db = SessionLocal()
     try:
@@ -24,3 +23,8 @@ def register_student(student: schemas.StudentCreate, db: Session = Depends(get_d
     db.commit()
     db.refresh(new_student)
     return new_student
+
+@router.get("/", response_model=list[schemas.StudentOut])
+def get_all_students(db: Session = Depends(get_db)):
+    students = db.query(models.Student).all()
+    return students

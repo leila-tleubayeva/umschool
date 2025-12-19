@@ -2,7 +2,7 @@ import os
 
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
-from app.bot.handlers import router
+from handlers import router
 import asyncio
 
 API_TOKEN = os.getenv("BOT_TOKEN")
