@@ -3,7 +3,6 @@ import os
 from aiogram import types, F
 from aiogram.filters import CommandStart, Command
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram import Router
 import requests
