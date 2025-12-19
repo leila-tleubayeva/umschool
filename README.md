@@ -16,10 +16,11 @@
 1. Копируем GitHub проект
    git clone https://github.com/ТВОЙ_ЮЗЕРНЕЙМ/НАЗВАНИЕ_РЕПО.git (индивидуально для вашего IDE)
 
-2. Создаем .env файл
-   Прописываем туда токен вашего бота, ссылку на ваш FastAPI и на базу данных.
+2. В файле docker-compose.yml
+   Прописываем токен вашего бота, ссылку на ваш FastAPI и вставляем имя пользователя, пароль и порт для вашей базы данных.
   BOT_TOKEN=ваш_токен_бота
-  API_URL=http://api:8000   
+  API_URL=http://api:8000
+  DATABASE_URL:postgresql+psycopg2://user:password@db:port/umschoolkz   
 
 # Запуск через Docker
 
