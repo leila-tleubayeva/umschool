@@ -19,7 +19,6 @@
 2. Создаем .env файл
    Прописываем туда токен вашего бота, ссылку на ваш FastAPI и на базу данных.
   BOT_TOKEN=ваш_токен_бота
-  DATABASE_URL=postgresql+psycopg2://user:password@db:port/umschoolkz
   API_URL=http://api:8000   
 
 # Запуск через Docker
